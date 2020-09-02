@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
+// import ContactContext from '../../context/contact/contactContext'
 
 const ContactItem = ({ contact }) => {
+    // const contactContext = useContext(ContactContext)
     const { id, name, email, phone, type } = contact
     return (
         <div className="card bg-light">
@@ -24,7 +26,7 @@ const ContactItem = ({ contact }) => {
 }
 
 ContactItem.propTypes = {
-    contact: PropTypes.object.isRequired,
+    contact: PropTypes.object.isRequired
 }
 
 export default ContactItem
