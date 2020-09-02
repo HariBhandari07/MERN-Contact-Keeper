@@ -21,7 +21,7 @@ const ContactState = props => {
                 name: 'Hari Bhandari',
                 email: 'hari@email.com',
                 phone: '1212121212',
-                type: 'personal'
+                type: 'professional'
             },
             {
                 id: 2,
