@@ -2,13 +2,20 @@ import React, { Fragment, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import AuthContext from '../../context/auth/authContext'
+import ContactContext from '../../context/contact/contactContext'
 
 const Navbar = ({ title, icon }) => {
     const authContext = useContext(AuthContext)
-    const { isAuthenticated, logout, user } = authContext
+    const contactContext = useContext(ContactContext)
 
+    const { isAuthenticated, logout, user } = authContext
+    const { clearContacts } = contactContext
     const onLogout = () => {
         logout()
+
+        // In SPAs when a user logs out and another user logs in, for a split of second, previous user data is
+        // still visible to the now logged in user. So, don't forget to clean up user's state when a user logs out
+        clearContacts()
     }
 
     const authLinks = (
